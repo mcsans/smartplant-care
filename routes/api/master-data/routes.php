@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
  * Master Data - Plant Category API Routes
  * prefix: api/master-data/plant-category
  */
-Route::prefix('plant-category')->group(function () {
+Route::prefix('plant-category')->middleware('auth:api')->group(function () {
     Route::get('/', [PlantCategoryController::class, 'index'])
-        // ->withoutMiddleware('auth:api')
+        ->withoutMiddleware('auth:api')
         ->name('api.plant-category.index');
 
     Route::get('/{id}', [PlantCategoryController::class, 'show'])
-        // ->withoutMiddleware('auth:api')
+        ->withoutMiddleware('auth:api')
         ->name('api.plant-category.show');
 
     Route::put('/{id}', [PlantCategoryController::class, 'update'])
