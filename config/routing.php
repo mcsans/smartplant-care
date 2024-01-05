@@ -10,6 +10,12 @@ return [
         ],
 
         [
+            'path' => base_path('routes/api/auth.php'),
+            'middleware' => 'api',
+            'prefix' => 'api',
+        ],
+
+        [
             'path' => base_path('routes/api.php'),
             'middleware' => 'api',
             'prefix' => 'api',
