@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Http\Repositories\BaseRepository;
+use {{contractNamespace}};
+
+class {{classname}} extends BaseRepository implements {{contract}}
+{
+    protected $modelName;
+
+    public function __construct(ModelName $modelName)
+    {
+        parent::__construct($modelName);
+        $this->modelName = $modelName;
+    }
+}

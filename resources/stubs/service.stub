@@ -1,0 +1,59 @@
+<?php
+
+namespace {{namespace}};
+
+class {{classname}}
+{
+    protected $repository;
+
+    public function __construct(Contract $exampleRepository)
+    {
+        $this->repository = $exampleRepository;
+    }
+
+    protected function payload($request)
+    {
+        $payloads = [
+            'name' => $request['name'],
+        ];
+
+        return $payloads;
+    }
+
+    public function indexService()
+    {
+        $examples = $this->repository->all();
+
+        return Resource::collection($examples);
+    }
+
+    public function findService($id)
+    {
+        $example = $this->repository->find($id);
+
+        return new Resource($example);
+    }
+
+    public function storeService(array $request)
+    {
+        $inputData = $this->payload($request);
+
+        $example = $this->repository->store($inputData);
+
+        return new Resource($example);
+    }
+
+    public function updateService(array $request, $id)
+    {
+        $inputData = $this->payload($request);
+
+        $this->repository->update($inputData, $id);
+
+        return $this->findService($id);
+    }
+
+    public function deleteService($id)
+    {
+        $this->repository->delete($id);
+    }
+}
