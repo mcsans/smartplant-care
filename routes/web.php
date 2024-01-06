@@ -14,19 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $serviceName = 'TestSatu';
-
-    $names = explode('/', $serviceName);
-    $classname = end($names);
-
-    if (count($names) > 1) {
-        array_pop($names);
-        $namespace = 'App\\Http\\Services\\Features\\'.implode('\\', $names);
-    } else {
-        $namespace = 'App\\Http\\Services\\Features';
-    }
-
-    echo $classname;
-    echo '<br>';
-    echo $namespace;
+    return view('welcome');
 });
