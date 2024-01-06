@@ -19,6 +19,7 @@ class UnitTestingSeeder extends Seeder
         $this->call([
             RolesSeeder::class,
             PermissionsSeeder::class,
+            PlantSeeder::class,
         ]);
 
         // If developer want to add another Seeder for Unit Testing purpose.

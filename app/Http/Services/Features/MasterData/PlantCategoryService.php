@@ -58,11 +58,11 @@ class PlantCategoryService
 
     public function deleteService($id)
     {
-        // $plants = $this->repository->find($id)->plants->count();
+        $plants = $this->repository->find($id)->plants->count();
 
-        // if ($plants != 0) {
-        //     throw new Exception('Plant Category Already Used');
-        // }
+        if ($plants != 0) {
+            throw new Exception('Plant Category Already Used');
+        }
 
         $this->repository->delete($id);
     }
