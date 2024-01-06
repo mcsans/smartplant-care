@@ -9,7 +9,6 @@ use Illuminate\Validation\ValidationException;
 
 class AuthRegistrationRequest extends FormRequest
 {
-
     protected $regexPassword = '/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]+$/';
 
     /**
