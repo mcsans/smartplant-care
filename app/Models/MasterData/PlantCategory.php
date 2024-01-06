@@ -10,4 +10,9 @@ class PlantCategory extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function plants()
+    {
+        return $this->hasMany(Plant::class);
+    }
 }
