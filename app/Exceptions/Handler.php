@@ -29,7 +29,7 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (\Spatie\Permission\Exceptions\UnauthorizedException $e, $request) {
             return response()->json([
-                'status'  => 403,
+                'status' => 403,
                 'message' => 'You do not have the required authorization.',
             ]);
         });

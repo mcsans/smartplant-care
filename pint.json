@@ -8,7 +8,9 @@
     "notPath": [
         "server.php",
         "public/index.php",
-        "bootstrap/app.php"
+        "bootstrap/app.php",
+        "app/Http/Repositories/BaseRepository.php",
+        "app/Http/Repositories/Contracts/BaseRepositoryContract.php"
     ],
     "rules": {
         "ordered_imports": false,

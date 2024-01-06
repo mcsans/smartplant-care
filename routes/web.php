@@ -21,7 +21,7 @@ Route::get('/', function () {
 
     if (count($names) > 1) {
         array_pop($names);
-        $namespace = 'App\\Http\\Services\\Features\\' . implode('\\', $names);
+        $namespace = 'App\\Http\\Services\\Features\\'.implode('\\', $names);
     } else {
         $namespace = 'App\\Http\\Services\\Features';
     }

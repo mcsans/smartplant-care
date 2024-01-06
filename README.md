@@ -84,6 +84,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Custom Command
 
-- php artisan:local test --with-code-fix
+- php artisan local:test --with-code-fix
 - php artisan make:service Example
 - php artisan make:repository-contract Example

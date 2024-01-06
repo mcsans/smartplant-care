@@ -13,6 +13,6 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware(['auth:api'])
     ->name('api.auth.logout');
 
-Route::get('/login', function() {
-        return response()->json(['message' => 'Welcome to login page.'], 200);
-    })->name('login');
+Route::get('/login', function () {
+    return response()->json(['message' => 'Welcome to login page.'], 200);
+})->name('login');
