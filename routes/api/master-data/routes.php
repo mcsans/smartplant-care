@@ -22,14 +22,14 @@ Route::prefix('plant-category')->middleware('auth:api')->group(function () {
         ->name('api.plant-category.show');
 
     Route::put('/{id}', [PlantCategoryController::class, 'update'])
-        // ->middleware('permission:api.plant-category.update')
+        ->middleware('permission:api.plant-category.update')
         ->name('api.plant-category.update');
 
     Route::delete('/{id}', [PlantCategoryController::class, 'destroy'])
-        // ->middleware('permission:api.plant-category.destroy')
+        ->middleware('permission:api.plant-category.destroy')
         ->name('api.plant-category.destroy');
 
     Route::post('/', [PlantCategoryController::class, 'store'])
-        // ->middleware('permission:api.plant-category.store')
+        ->middleware('permission:api.plant-category.store')
         ->name('api.plant-category.store');
 });

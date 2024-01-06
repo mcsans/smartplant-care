@@ -11,6 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -20,12 +21,15 @@ class AuthController extends Controller
     {
         $inputData = $request->validated();
 
-        User::create([
+        $user = User::create([
             'name' => $inputData['name'],
             'email' => $inputData['email'],
             'password' => Hash::make($inputData['password']),
             'email_verified_at' => Carbon::now(),
         ]);
+
+        $role = Role::findByName('NORMAL_USER', 'api');
+        $user->assignRole($role);
 
         return $this->resultResponse('success', 'User Registration Successfully', 200);
     }
