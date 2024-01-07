@@ -20,6 +20,7 @@ class UnitTestingSeeder extends Seeder
             RolesSeeder::class,
             PermissionsSeeder::class,
             PlantSeeder::class,
+            SensorSeeder::class,
         ]);
 
         // If developer want to add another Seeder for Unit Testing purpose.

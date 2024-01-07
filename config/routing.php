@@ -4,6 +4,12 @@ return [
     'paths' => [
         //  API
         [
+            'path' => base_path('routes/api/sensor/routes.php'),
+            'middleware' => 'api',
+            'prefix' => 'api',
+        ],
+
+        [
             'path' => base_path('routes/api/master-data/routes.php'),
             'middleware' => 'api',
             'prefix' => 'api/master-data',
