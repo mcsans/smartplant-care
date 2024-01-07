@@ -52,6 +52,9 @@ class PermissionsSeeder extends Seeder
             'api.plant.store',
             'api.plant.update',
             'api.plant.destroy',
+            'api.sensor.store',
+            'api.sensor.update',
+            'api.sensor.destroy',
         ];
 
         $staffPermissionAPI = [
@@ -68,6 +71,9 @@ class PermissionsSeeder extends Seeder
             'api.plant.store',
             'api.plant.update',
             'api.plant.destroy',
+            'api.sensor.store',
+            'api.sensor.update',
+            'api.sensor.destroy',
         ];
 
         $normalUserPermissionAPI = [
@@ -111,6 +117,9 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'api.plant.store', 'guard_name' => 'api']);
         Permission::create(['name' => 'api.plant.update', 'guard_name' => 'api']);
         Permission::create(['name' => 'api.plant.destroy', 'guard_name' => 'api']);
+        Permission::create(['name' => 'api.sensor.store', 'guard_name' => 'api']);
+        Permission::create(['name' => 'api.sensor.update', 'guard_name' => 'api']);
+        Permission::create(['name' => 'api.sensor.destroy', 'guard_name' => 'api']);
 
         Role::findByName('NORMAL_USER', 'api')->syncPermissions($normalUserPermissionAPI);
 
