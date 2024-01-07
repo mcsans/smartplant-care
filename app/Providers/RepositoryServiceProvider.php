@@ -7,9 +7,11 @@ use App\Http\Repositories\Contracts\BaseRepositoryContract;
 use App\Http\Repositories\Contracts\MasterData\PlantCategoryContract;
 use App\Http\Repositories\Contracts\MasterData\PlantContract;
 use App\Http\Repositories\Contracts\SensorContract;
+use App\Http\Repositories\Contracts\UserContract;
 use App\Http\Repositories\MasterData\PlantCategoryRepository;
 use App\Http\Repositories\MasterData\PlantRepository;
 use App\Http\Repositories\SensorRepository;
+use App\Http\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -32,6 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(BaseRepositoryContract::class, BaseRepository::class);
+        $this->app->bind(UserContract::class, UserRepository::class);
         $this->app->bind(PlantCategoryContract::class, PlantCategoryRepository::class);
         $this->app->bind(PlantContract::class, PlantRepository::class);
         $this->app->bind(SensorContract::class, SensorRepository::class);

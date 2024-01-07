@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\MasterData\PlantCategory;
+namespace App\Http\Resources\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PlantCategoryResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,7 +20,12 @@ class PlantCategoryResource extends JsonResource
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
             'name' => $this->name,
-            'plants' => $this->plants,
+            'email' => $this->email,
+            'phone_number' => $this->phone_number,
+            'place_birth' => $this->place_birth,
+            'date_birth' => $this->date_birth,
+            'gender' => $this->gender,
+            'address' => $this->address,
         ];
     }
 }

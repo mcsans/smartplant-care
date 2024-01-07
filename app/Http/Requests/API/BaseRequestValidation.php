@@ -17,6 +17,8 @@ class BaseRequestValidation extends FormRequest
 
     protected $regexPassword = '/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]+$/';
 
+    protected $regexPhoneNumber = '/^62\d+$/';
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -34,5 +36,10 @@ class BaseRequestValidation extends FormRequest
         );
 
         throw new ValidationException($validator, $response);
+    }
+
+    protected function genderIn()
+    {
+        return implode(',', config('user.gender'));
     }
 }
