@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 /**
  * Master Data - Sensor API Routes
- * prefix: api/master-data/sensor
+ * prefix: api/sensor
  */
 Route::prefix('sensor')->middleware('auth:api')->group(function () {
     Route::get('/', [SensorController::class, 'index'])
@@ -22,8 +22,8 @@ Route::prefix('sensor')->middleware('auth:api')->group(function () {
         ->name('api.sensor.show');
 
     Route::put('/update-batch', [SensorController::class, 'updateBatch'])
-        // ->middleware('permission:api.sensor.updateBatch')
-        ->name('api.sensor.updateBatch');
+        ->middleware('permission:api.sensor.update.batch')
+        ->name('api.sensor.update.batch');
 
     Route::put('/{id}', [SensorController::class, 'update'])
         ->middleware('permission:api.sensor.update')
