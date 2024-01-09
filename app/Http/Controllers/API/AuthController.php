@@ -9,6 +9,7 @@ use App\Http\Resources\AuthResource;
 use App\Http\Services\Traits\ResultResponse;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -21,17 +22,22 @@ class AuthController extends Controller
     {
         $inputData = $request->validated();
 
-        $user = User::create([
-            'name' => $inputData['name'],
-            'email' => $inputData['email'],
-            'password' => Hash::make($inputData['password']),
-            'email_verified_at' => Carbon::now(),
-        ]);
+        try {
+            $user = User::create([
+                'name' => $inputData['name'],
+                'email' => $inputData['email'],
+                'password' => Hash::make($inputData['password']),
+            ]);
 
-        $role = Role::findByName('NORMAL_USER', 'api');
-        $user->assignRole($role);
+            $role = Role::findByName('NORMAL_USER', 'api');
+            $user->assignRole($role);
 
-        return $this->resultResponse('success', 'User Registration Successfully', 200);
+            event(new Registered($user));
+
+            return $this->resultResponse('success', 'User Registration Successfully', 200);
+        } catch (\Throwable $th) {
+            return $this->specificApiResponse('failed', $th->getMessage(), 400);
+        }
     }
 
     public function login(AuthLoginRequest $request)
