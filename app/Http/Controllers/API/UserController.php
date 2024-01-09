@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\API\User\StoreUserRequest;
 use App\Http\Requests\API\User\UpdateUserRequest;
 use App\Http\Services\Features\UserService;
+use Illuminate\Auth\Events\Registered;
 
 class UserController extends Controller
 {
@@ -54,6 +55,8 @@ class UserController extends Controller
 
         try {
             $user = $this->service->storeService($inputData);
+
+            event(new Registered($user));
 
             return $this->specificApiResponse(
                 'success',
