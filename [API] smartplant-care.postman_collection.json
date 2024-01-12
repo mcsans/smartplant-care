@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "cadc09b2-e277-49d6-9505-b5f2b70b3d9a",
-		"name": "smartplant-care",
+		"_postman_id": "4f3ab60e-32c3-40b3-afeb-2c43080703fc",
+		"name": "[API] smartplant-care",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21400179",
-		"_collection_link": "https://warped-space-243623.postman.co/workspace/My-Workspace~62d2858b-7c4e-4c12-8fa9-abec3c43e63e/collection/21400179-cadc09b2-e277-49d6-9505-b5f2b70b3d9a?action=share&source=collection_link&creator=21400179"
+		"_collection_link": "https://warped-space-243623.postman.co/workspace/My-Workspace~62d2858b-7c4e-4c12-8fa9-abec3c43e63e/collection/21400179-4f3ab60e-32c3-40b3-afeb-2c43080703fc?action=share&source=collection_link&creator=21400179"
 	},
 	"item": [
 		{
@@ -128,10 +128,10 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.globals.set(\"url\", \"http://127.0.0.1:8000/api\");\r",
+									"pm.globals.set(\"url\", \"https://smartplant-care-production.up.railway.app/api\");\r",
 									"pm.globals.set(\"token\", jsonData.data.token);\r",
 									"\r",
-									"pm.environment.set(\"url\", \"http://127.0.0.1:8000/api\");\r",
+									"pm.environment.set(\"url\", \"https://smartplant-care-production.up.railway.app/api\");\r",
 									"pm.environment.set(\"token\", jsonData.data.token);\r",
 									""
 								],
